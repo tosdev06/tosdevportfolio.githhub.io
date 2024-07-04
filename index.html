@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe | Full Stack Developer</title>
+    <title>Tosdev portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="container">
+                <a href="#" class="logo">Todsev</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
         </nav>
     </header>
     
@@ -23,12 +31,13 @@
         <div class="container">
             <img src="sam.png" alt="Profile Picture" class="profile-pic">
             <div class="intro">
-                <h1>Olawuyi samuel</h1>
-                <p>Full Stack Developer</p>
+                <h1>Olawuyi Samuel</h1>
+                <p>junior Full Stack Developer</p>
             </div>
         </div>
     </section>
     
+   <div class="ski">
     <section id="skills" class="section">
         <div class="container">
             <h2>Skills</h2>
@@ -36,27 +45,76 @@
                 <div class="skill">HTML</div>
                 <div class="skill">CSS</div>
                 <div class="skill">JavaScript</div>
-                <div class="skill">React</div>
-                <div class="skill">Node.js</div>
-                <div class="skill">Python</div>
+                <div class="skill">Php</div>
+                <div class="skill">Mysql</div>
+                <div class="skill">C++</div>
             </div>
         </div>
     </section>
+   </div>
     
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>Description of project 1.</p>
+    <div class="pro">
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-item">
+                        <div class="slider">
+                            <div class="slides">
+                                <img class="slide" src="2023-11-15.png" alt="Project 1 Image 1">
+                                <img class="slide" src="2024-01-25 (3).png" alt="Project 1 Image 2">
+                                <img class="slide" src="2024-01-25 (1).png" alt="Project 1 Image 3">
+                            </div>
+                            <button class="prev" onclick="plusSlides(-1, 0)">&#10094;</button>
+                            <button class="next" onclick="plusSlides(1, 0)">&#10095;</button>
+                        </div>
+                        <h3>Project 1</h3>
+                        <p>Description</p>
+                        <a href="https://link-to-demo1.com" class="view-demo">View Demo</a>
+                    </div>
+                    <div class="project-item">
+                        <div class="slider">
+                            <div class="slides">
+                                <img class="slide" src="project2-1.jpg" alt="Project 2 Image 1">
+                                <img class="slide" src="project2-2.jpg" alt="Project 2 Image 2">
+                            </div>
+                            <button class="prev" onclick="plusSlides(-1, 1)">&#10094;</button>
+                            <button class="next" onclick="plusSlides(1, 1)">&#10095;</button>
+                        </div>
+                        <h3>Project 2</h3>
+                        <p>Description</p>
+                        <a href="https://link-to-demo2.com" class="view-demo">View Demo</a>
+                    </div>
+                    <div class="project-item">
+                        <div class="slider">
+                            <div class="slides">
+                                <img class="slide" src="project3-1.jpg" alt="Project 3 Image 1">
+                            </div>
+                        </div>
+                        <h3>Project 3</h3>
+                        <p>Description.</p>
+                        <a href="https://link-to-demo3.com" class="view-demo">View Demo</a>
+                    </div>
+                    <div class="project-item">
+                        <div class="slider">
+                            <div class="slides">
+                                <img class="slide" src="2023-11-15.png" alt="Project 1 Image 1">
+                                <img class="slide" src="2024-01-25 (3).png" alt="Project 1 Image 2">
+                                <img class="slide" src="2024-01-25 (1).png" alt="Project 1 Image 3">
+                            </div>
+                            <button class="prev" onclick="plusSlides(-1, 0)">&#10094;</button>
+                            <button class="next" onclick="plusSlides(1, 0)">&#10095;</button>
+                        </div>
+                        <h3>Project 4</h3>
+                        <p>Description</p>
+                        <a href="https://link-to-demo1.com" class="view-demo">View Demo</a>
+                    </div>
+                    
+                </div>
             </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of project 2.</p>
-            </div>
-        </div>
-    </section>
-    
+        </section>
+    </div>
+
     <section id="contact" class="section">
         <div class="container">
             <h2>Contact</h2>
@@ -76,7 +134,17 @@
     </section>
     
     <footer>
-        <p>&copy; 2024 John Doe</p>
+        <p>&copy; 2024 Tosdev</p>
+        <div class="social-icons">
+            <a href="https://x.com/OlawuyiOluwat19" target="_blank" rel="noopener noreferrer">
+                <img src="x.png" alt="Twitter">
+            </a>
+            <a href="https://www.linkedin.com/in/olawuyi-oluwatofunmi-407846307/?trk=opento_sprofile_details" target="_blank" rel="noopener noreferrer">
+                <img src="in.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/tosdev06" target="_blank" rel="noopener noreferrer">
+                <img src="git.png" alt="github">
+            </a>
     </footer>
 
     <script src="script.js"></script>
