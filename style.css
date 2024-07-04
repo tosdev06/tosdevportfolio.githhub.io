@@ -162,8 +162,7 @@ nav ul li a:hover {
     overflow: hidden;
 }
 .pro{
-    min-height: 500px;
-    max-height: 550px;
+   
     background-color: #bebebe;
 }
 .slides {
