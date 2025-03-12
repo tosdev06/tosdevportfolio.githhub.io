@@ -1,45 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const toggle = document.getElementById('toggle');
-    const body = document.body;
-
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
-
-    toggle.addEventListener('change', () => {
-        body.classList.toggle('dark-mode');
-    });
-
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        alert('Thank you! Your form has been submitted.');
-        contactForm.reset();
-    });
-
-    const sliders = document.querySelectorAll('.slider');
-
-    sliders.forEach((slider, index) => {
-        const slides = slider.querySelector('.slides');
-        const images = slides.querySelectorAll('.slide');
-        let currentIndex = 0;
-
-        function showSlide(n) {
-            slides.style.transform = `translateX(${-n * 100}%)`;
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
         }
 
-        function plusSlides(n) {
-            currentIndex += n;
-            if (currentIndex >= images.length) currentIndex = 0;
-            if (currentIndex < 0) currentIndex = images.length - 1;
-            showSlide(currentIndex);
+        let slideIndex = [0];
+        function changeSlide(n, slider) {
+            let slides = document.querySelectorAll(`#slider${slider+1} .slide`);
+            slideIndex[slider] = (slideIndex[slider] + n + slides.length) % slides.length;
+            slides.forEach((slide, i) => slide.style.display = i === slideIndex[slider] ? 'block' : 'none');
         }
 
-        slider.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
-        slider.querySelector('.next').addEventListener('click', () => plusSlides(1));
-
-        showSlide(currentIndex);
-    });
-});
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".slides").forEach((slider, index) => {
+                let slides = slider.querySelectorAll(".slide");
+                slides.forEach((slide, i) => slide.style.display = i === 0 ? 'block' : 'none');
+                slideIndex[index] = 0;
+            });
+        });
