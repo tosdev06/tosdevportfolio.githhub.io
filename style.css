@@ -279,7 +279,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     .content-text {
         width: 70%;
     }
@@ -311,7 +311,7 @@ li a{
 }
 
 
-@media screen and (max-width: 738px) {
+@media screen and (max-width: 508px) {
     .menu ul {
         display: none; 
         position: absolute;
