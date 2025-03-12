@@ -223,7 +223,7 @@ footer {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 738px) {
     .text-overlay {
         font-size: 20px;
         padding: 10px;
@@ -311,7 +311,7 @@ li a{
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 738px) {
     .menu ul {
         display: none; 
         position: absolute;
