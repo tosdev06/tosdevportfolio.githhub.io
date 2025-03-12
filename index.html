@@ -3,105 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tosdev Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Tosdev</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="container">
-                <a href="#" class="logo">Tosdev</a>
-                <ul class="nav-links">
+    
+    <section id="home" class="home"> 
+        <div class="header">
+            <div class="logo">
+                <p>TOSDEV</p>
+            </div>
+            <div class="menu-toggle">&#9776;</div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#Services">Our Services</a></li>
+                    <li><a href="#">Web Hosting</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
-                <div class="burger" onclick="toggleMenu()">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    
-    <section id="about" class="section">
-        <div class="container">
-            <img src="sam.png" alt="Profile Picture" class="profile-pic">
-            <div class="intro">
-                <h1>Olawuyi Samuel</h1>
-                <p>Junior Full Stack Developer</p>
             </div>
         </div>
+
+        <div class="slideshow">
+            <img src="pp1.jpg" class="active">
+            <img src="pp2.jpg">
+            <img src="pp3.jpg">
+            <img src="pp2.jpg">
+            <img src="pp1.jpg">
+            <img src="pp2.jpg">
+            <img src="pp3.jpg">
+
+        </div>
+
+        <div class="text-overlay" >
+            <p>Welcome to Tosdev – Innovation at Its Best",</p>
+            <p>We Work With Relaible Team To Give Us The Best Solution</p>
+        </div>
+        
     </section>
-    
-    <section id="skills" class="section">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skill-container">
-                <span class="skill">HTML</span>
-                <span class="skill">CSS</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">PHP</span>
-                <span class="skill">MySQL</span>
-                <span class="skill">C++</span>
+    <section id="about" class="about">
+        <header>About Us <hr color="rgb(1, 1, 17)"></header>
+        <div class="content">
+            <div class="content-text">
+                <p style="font-size:35px; font-weight:bold;"> We Grow Brands and Create Experiences</p>
+            <p>Olawuyi Tofunmi, also known as TOSDEV, is a passionate Software Engineering 
+                student at Babcock University. With a strong dedication to innovation
+                 and problem-solving, TOSDEV specializes in developing cutting-edge software 
+                 solutions that enhance user experiences and drive business growth.</p>
+            </div>
+            <div class="content-img">
+                <img src="pp4.webp" alt="">
             </div>
         </div>
-    </section>
-    
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <div class="slider" id="slider1">
-                        <div class="slides">
-                            <img class="slide" src="Screenshot (32).png">
-                            <img class="slide" src="Screenshot (35).png">
-                            <img class="slide" src="Screenshot (36).png">
-                        </div>
-                        <button class="prev" onclick="changeSlide(-1, 0)">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1, 0)">&#10095;</button>
-                    </div>
-                    <h3>Project 1</h3>
-                    <p>Description</p>
-                    <a href="#" class="view-demo">View Demo</a>
-                </div>
-                 <div class="project-item">
-                    <div class="slider" id="slider1">
-                        <div class="slides">
-                            <img class="slide" src="Screenshot (32).png">
-                            <img class="slide" src="Screenshot (35).png">
-                            <img class="slide" src="Screenshot (36).png">
-                        </div>
-                        <button class="prev" onclick="changeSlide(-1, 0)">&#10094;</button>
-                        <button class="next" onclick="changeSlide(1, 0)">&#10095;</button>
-                    </div>
-                    <h3>Project 1</h3>
-                    <p>Description</p>
-                    <a href="#" class="view-demo">View Demo</a>
-                </div>
-            </div>
+
+        <div class="skill-container">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">PHP</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">C++</span>
         </div>
     </section>
+    <section id="Services" class="Services">
+<div class="serv-con">
     
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+
+    <header>Our Services<hr color="rgb(1, 1, 17)"></header>
+    <div class="cards">
+        <div class="card">
+            <h1>Software Development</h1>
+            <p>Our experienced and dedicated team 
+                specializes in creating custom software 
+                solutions tailored to your organization's 
+                unique needs. Whether it's a web 
+                application, mobile app,
+                 or enterprise software, we ensure
+                  scalability, security, and efficiency.</p>
         </div>
+        <div class="card">
+            <h1>Data Analysis</h1>
+            <p>  Unlock valuable insights from your data 
+                with our data analysis services. We help 
+                businesses make data-driven decisions 
+                through data visualization, trend analysis,
+                 and predictive analytics to improve 
+                 operations and strategy.</p>
+        </div>
+        <div class="card">
+            <h1>Online Payment Integration</h1>
+            <p>We provide seamless payment gateway 
+                integration to help businesses accept
+                 online transactions securely and 
+                 efficiently. Our solutions support 
+                multiple payment methods, including 
+                credit/debit cards, mobile wallets, 
+                and bank transfers.</p>
+        </div>
+        <div class="card">
+            <h1>Software Deploment</h1>
+            <p>From development to launch, we handle 
+                the end-to-end deployment process, 
+                ensuring your software runs smoothly
+                 and efficiently. Our team ensures proper
+                 configuration, testing, and 
+                 optimization for a successful 
+                 go-live experience.</p>
+        </div>
+    </div>
+</div>
     </section>
+
     
+
+
+
+
+
     <footer>
         <p>&copy; 2024 Tosdev</p>
         <div class="social-icons">
@@ -110,27 +129,8 @@
             <a href="https://github.com/tosdev06" target="_blank"><img src="git.png" alt="GitHub"></a>
         </div>
     </footer>
-    
-    <script>
-                function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        }
 
-        let slideIndex = [0];
-        function changeSlide(n, slider) {
-            let slides = document.querySelectorAll(`#slider${slider+1} .slide`);
-            slideIndex[slider] = (slideIndex[slider] + n + slides.length) % slides.length;
-            slides.forEach((slide, i) => slide.style.display = i === slideIndex[slider] ? 'block' : 'none');
-        }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".slides").forEach((slider, index) => {
-                let slides = slider.querySelectorAll(".slide");
-                slides.forEach((slide, i) => slide.style.display = i === 0 ? 'block' : 'none');
-                slideIndex[index] = 0;
-            });
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
