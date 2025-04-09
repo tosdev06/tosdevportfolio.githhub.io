@@ -374,3 +374,6 @@ footer {
 a{
     color:#fff;
 }
+li{
+    list-item:none;
+}
