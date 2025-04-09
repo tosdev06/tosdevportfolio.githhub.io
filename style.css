@@ -279,65 +279,83 @@ footer {
     }
 }
 
-@media screen and (max-width: 768px) {
-    .content-text {
-        width: 70%;
+
+
+
+@media screen and (max-width: 738px) {
+    .text-overlay {
+        font-size: 18px;
+        padding: 10px 15px;
+        height: auto;
     }
 
-    .serv-con .cards {
-        justify-content: space-around;
-    }
-
-    .serv-con .cards .card {
-        width: 45%;
-    }
-}
-li a{
-    text-decoration: none;
-    color:white
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    margin-left: 400px;
-}
-
-.menu ul {
-    display: flex;
-    list-style: none;
-}
-
-
-@media screen and (max-width: 414px) {
-    .menu ul {
-        display: none; 
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        width: 200px;
-        text-align: center;
-        border-radius: 10px;
-        
-        flex-direction: column;
-        padding: 10px 0;
-    }
-
-    .menu ul.active {
-        display: flex; 
-    }
-
-    .menu li {
-        padding: 15px;
+    .header {
+        padding: 10px 15px;
     }
 
     .menu-toggle {
-        display: block; 
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        display: block;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 55px;
+        right: 10px;
+        width: 180px;
+        display: none;
+        text-align: center;
+        border-radius: 10px;
+        padding: 10px;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .menu ul.active {
+        display: block;
+    }
+
+    .about .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .content-img {
+        margin: 20px auto;
+        width: 80%;
+        height: 200px;
+    }
+
+    .content-text {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .content-text p {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .serv-con .cards .card {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .serv-con .cards .card h1 {
+        font-size: 22px;
+    }
+
+    .serv-con .cards .card p {
+        font-size: 17px;
     }
 }
+
 .skill-container {
     display: flex;
     flex-wrap: wrap;
