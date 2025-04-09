@@ -252,6 +252,7 @@ footer {
 
     .menu li {
         padding: 15px;
+        color:#fff;
     }
 
     .about .content {
@@ -370,4 +371,6 @@ footer {
     border-radius: 5px;
     font-size: 16px;
 }
-
+a{
+    color:#fff;
+}
