@@ -3,7 +3,11 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
         }
+a {
+  text-decoration: none;
+}
 
         body {
             overflow-x: hidden;
@@ -989,3 +993,4 @@
             transform: translateY(0);
             opacity: 1;
         }
+
