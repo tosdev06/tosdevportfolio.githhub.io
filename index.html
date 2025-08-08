@@ -3,141 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tosdev - Portfolio</title>
+    <title>Tosdev - Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             overflow-x: hidden;
-            line-height: 1.6;
             color: #333;
+            line-height: 1.6;
         }
 
-        /* Improved Typography */
-        h1, h2, h3, h4 {
-            line-height: 1.2;
-            font-weight: 700;
-        }
-
-        /* Enhanced Spacing System */
-        .section {
-            padding: 6rem 1.5rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Header - More Elegant */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1.5rem 0;
-            transition: all 0.3s ease;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .header.scrolled {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 1rem 0;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .logo {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo span {
-            color: #4e9af1;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-item {
-            margin-left: 2rem;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s ease;
+        /* Home Section */
+        .home {
             position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-link:hover {
-            color: #4e9af1;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #4e9af1;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
             width: 100%;
-        }
-
-        /* Hero Section - More Impactful */
-        .hero {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
             overflow: hidden;
-            background-color: #000;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
         }
 
         .slideshow {
             position: absolute;
             width: 100%;
             height: 100%;
-            z-index: 1;
         }
 
         .slideshow img {
@@ -147,153 +41,414 @@
             object-fit: cover;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
-            filter: brightness(0.7);
+            filter: brightness(0.4);
         }
 
         .slideshow img.active {
             opacity: 1;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
             text-align: center;
-            padding: 2rem;
+            animation: fadeIn 1.5s ease-in-out;
+            width: 90%;
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .text-overlay h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: slideInFromTop 1s ease-out;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .text-overlay p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            animation: slideInFromBottom 1s ease-out;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #4e9af1;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid #4e9af1;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #4e9af1;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translate(-50%, -60%); }
+            100% { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        @keyframes slideInFromTop {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromBottom {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            color: #fff;
+            transition: all 0.5s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(26, 26, 46, 0.95);
+            padding: 15px 5%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .logo span {
+            color: #4e9af1;
+        }
+
+        .logo:hover {
+            color: #4e9af1;
+        }
+
+        .logo:hover span {
             color: white;
         }
 
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease-out;
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
         }
 
-        .hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.2s forwards;
-            opacity: 0;
+        .menu-toggle:hover {
+            color: #4e9af1;
         }
 
-        /* About Section - Cleaner Layout */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .menu ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #4e9af1;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .menu li a:hover::after {
+            width: 100%;
+        }
+
+        .menu li a:hover {
+            color: #4e9af1;
+        }
+
+        /* Section Common Styles */
+        .section {
+            padding: 100px 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 40px;
+            margin-bottom: 70px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #4e9af1;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #555;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* About Section */
+        .about {
+            background: #fff;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
         }
 
-        .about-image {
-            border-radius: 0.5rem;
+        .content-text {
+            flex: 1;
+            min-width: 300px;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .content-text h2 {
+            font-size: 35px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        .content-text p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .content-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInRight 1s ease-out;
+            transition: transform 0.5s ease;
+            position: relative;
         }
 
-        .about-image:hover {
-            transform: translateY(-5px);
+        .content-img:hover {
+            transform: translateY(-10px);
         }
 
-        .about-image img {
+        .content-img img {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 0.5s ease;
         }
 
-        .about-image:hover img {
-            transform: scale(1.03);
+        .content-img:hover img {
+            transform: scale(1.05);
         }
 
-        .about-text h2 {
-            font-size: 2.25rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
-
-        /* Skills - Better Organization */
-        .skills-container {
+        .skill-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 2rem;
+            gap: 15px;
+            margin-top: 40px;
+            justify-content: center;
         }
 
-        .skill-tag {
+        .skill {
             background: #2c3e50;
             color: white;
-            padding: 0.5rem 1.25rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            font-weight: 500;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .skill-tag:hover {
+        .skill:hover {
             background: #4e9af1;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* Services - Card Improvements */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Services Section */
+        .services {
+            background: #f9f9f9;
         }
 
-        .service-card {
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
             background: white;
-            border-radius: 0.5rem;
-            padding: 2rem;
+            border-radius: 10px;
+            padding: 40px 30px;
+            width: 300px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
-            border-top: 3px solid #4e9af1;
+            z-index: 1;
+            text-align: center;
         }
 
-        .service-card:hover {
+        .card-icon {
+            font-size: 50px;
+            color: #4e9af1;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #4e9af1;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            color: white;
         }
 
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .card:hover::before {
+            height: 100%;
+        }
+
+        .card:hover .card-icon {
+            color: white;
+        }
+
+        .card h3 {
             color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
 
-        .service-card p {
+        .card:hover h3 {
+            color: white;
+        }
+
+        .card p {
             color: #555;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        /* Projects - Modern Grid */
-        .projects-grid {
+        .card:hover p {
+            color: white;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #fff;
+        }
+
+        .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 30px;
+            margin-top: 30px;
         }
 
         .project-card {
-            background: white;
-            border-radius: 0.5rem;
+            background: #fff;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .project-image {
@@ -310,91 +465,153 @@
         }
 
         .project-card:hover .project-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(78, 154, 241, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 5px 0;
+            padding: 8px 20px;
+            border: 2px solid white;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .project-overlay a:hover {
+            background: white;
+            color: #4e9af1;
         }
 
         .project-info {
-            padding: 1.5rem;
+            padding: 25px;
         }
 
         .project-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
             color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .project-info p {
             color: #555;
-            margin-bottom: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 10px;
         }
 
         .tech-tag {
             background: #f0f0f0;
             color: #2c3e50;
-            padding: 0.25rem 0.75rem;
-            border-radius: 2rem;
-            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 500;
         }
 
-        /* Footer - More Organized */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 4rem 0 2rem;
+        /* Contact Section */
+        .contact {
+            background: #f9f9f9;
         }
 
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
         }
 
-        .footer-col h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 30px;
             position: relative;
+            padding-bottom: 15px;
         }
 
-        .footer-col h3::after {
+        .contact-info h3::after {
             content: '';
             position: absolute;
-            bottom: -0.5rem;
+            bottom: 0;
             left: 0;
-            width: 2.5rem;
-            height: 2px;
+            width: 50px;
+            height: 3px;
             background: #4e9af1;
         }
 
-        .footer-links {
-            list-style: none;
+        .contact-details {
+            margin-bottom: 30px;
         }
 
-        .footer-links li {
-            margin-bottom: 0.75rem;
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
 
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+        .contact-icon {
+            font-size: 20px;
+            color: #4e9af1;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .contact-text h4 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-text p, .contact-text a {
+            color: #555;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
+        .contact-text a:hover {
             color: #4e9af1;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 15px;
         }
 
         .social-links a {
@@ -403,139 +620,406 @@
             justify-content: center;
             width: 40px;
             height: 40px;
+            background: #f0f0f0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            color: #2c3e50;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
             background: #4e9af1;
+            color: white;
             transform: translateY(-3px);
         }
 
-        .copyright {
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #4e9af1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #4e9af1;
+            box-shadow: 0 0 0 3px rgba(78, 154, 241, 0.2);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #4e9af1;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .submit-btn:hover {
+            background: #3a86d4;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 50px 5% 20px;
             text-align: center;
-            padding-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #4e9af1;
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: #4e9af1;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.875rem;
+        }
+
+        .footer-bottom p {
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #4e9af1;
+            transform: translateY(-3px);
         }
 
         /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        @keyframes fadeInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 1200px) {
+            .text-overlay h1 {
+                font-size: 3rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .text-overlay p {
+                font-size: 1.3rem;
             }
         }
 
-        .animate {
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        .animate.delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .animate.delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
+        @media screen and (max-width: 992px) {
+            .text-overlay h1 {
+                font-size: 2.5rem;
             }
-
-            .about-image {
-                max-width: 600px;
-                margin: 0 auto;
+            
+            .text-overlay p {
+                font-size: 1.2rem;
             }
-
+            
             .menu-toggle {
                 display: block;
             }
-
-            .nav-menu {
+            
+            .menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 80%;
-                max-width: 300px;
+                width: 300px;
                 height: 100vh;
-                background: rgba(0, 0, 0, 0.95);
+                background: rgba(26, 26, 46, 0.95);
+                backdrop-filter: blur(10px);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                transition: right 0.3s ease;
+                transition: right 0.5s ease;
                 z-index: 1000;
             }
-
-            .nav-menu.active {
+            
+            .menu.active {
                 right: 0;
             }
+            
+            .menu ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .menu li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            .menu li a {
+                font-size: 20px;
+            }
+            
+            .content-text, .content-img {
+                flex: 100%;
+            }
+            
+            .content-img {
+                margin-top: 30px;
+            }
 
-            .nav-item {
-                margin: 1rem 0;
+            .project-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+
+            .footer-content {
+                justify-content: center;
+            }
+
+            .footer-col {
+                text-align: center;
+            }
+
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-links {
+                padding: 0;
             }
         }
 
-        @media (max-width: 768px) {
-            .section {
-                padding: 4rem 1rem;
+        @media screen and (max-width: 768px) {
+            .text-overlay h1 {
+                font-size: 2rem;
+            }
+            
+            .text-overlay p {
+                font-size: 1rem;
+            }
+            
+            .section-header {
+                font-size: 32px;
+                margin-bottom: 50px;
+            }
+            
+            .content-text h2 {
+                font-size: 28px;
+            }
+            
+            .card {
+                width: 100%;
+                max-width: 350px;
             }
 
-            .projects-grid {
+            .project-image {
+                height: 180px;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info, .contact-form {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .text-overlay {
+                width: 95%;
+            }
+            
+            .text-overlay h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .menu {
+                width: 80%;
+            }
+            
+            .skill {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            .project-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-title {
-                font-size: 2.25rem;
+            .project-info h3 {
+                font-size: 20px;
+            }
+
+            .section-header {
+                font-size: 28px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
             }
         }
 
-        @media (max-width: 576px) {
-            .header-container {
-                padding: 0 1rem;
-            }
+        /* Scroll Reveal Animation */
+        .reveal {
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
 
-            .hero-content {
-                padding: 1rem;
-            }
-
-            .service-card {
-                padding: 1.5rem;
-            }
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="header-container">
-            <a href="#" class="logo">TOS<span>DEV</span></a>
-            <button class="menu-toggle" id="menuToggle">
+    <section id="home" class="home"> 
+        <div class="header">
+            <div class="logo">
+                <p>TOS<span>DEV</span></p>
+            </div>
+            <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="https://tosblog-379u.onrender.com/index.php" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-            </ul>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="https://tosblog-379u.onrender.com/index.php">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+       
         <div class="slideshow">
             <img src="pp1.jpg" class="active">
             <img src="pp2.jpg">
@@ -543,322 +1027,502 @@
             <img src="pp2.jpg">
             <img src="pp1.jpg">
         </div>
-        <div class="hero-content">
-            <h1 class="hero-title animate">Welcome to Tosdev – Innovation at Its Best</h1>
-            <p class="hero-subtitle animate delay-1">We Work With Reliable Team To Give You The Best Solution</p>
-            <a href="#about" class="btn btn-primary animate delay-2">
-                <i class="fas fa-chevron-down"></i> Learn More
-            </a>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About Us</h2>
-                <p>Get to know more about our team and expertise</p>
+        <div class="text-overlay">
+            <h1>Innovative Solutions for Your Digital Needs</h1>
+            <p>We combine creativity with technical expertise to deliver exceptional results</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+        
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+    
+    <section id="about" class="about section">
+        <header class="section-header reveal">About Me</header>
+        <p class="section-subtitle reveal">Get to know more about my skills and expertise</p>
+        <div class="content">
+            <div class="content-text reveal">
+                <h2>Building Digital Experiences That Matter</h2>
+                <p>Olawuyi Tofunmi, also known as TOSDEV, is a passionate Software Engineering 
+                    student at Babcock University. With a strong dedication to innovation
+                     and problem-solving, I specialize in developing cutting-edge software 
+                     solutions that enhance user experiences and drive business growth.</p>
+                <p>My approach combines technical expertise with creative problem-solving to deliver solutions that 
+                    not only meet but exceed clients' expectations. I believe in building 
+                    long-term relationships through transparency, quality, and innovation.</p>
+                <p>When I'm not coding, you can find me contributing to open-source projects, writing technical articles, or exploring new technologies to expand my skill set.</p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>We Grow Brands and Create Experiences</h2>
-                    <p>Olawuyi Tofunmi, also known as TOSDEV, is a passionate Software Engineering 
-                        student at Babcock University. With a strong dedication to innovation
-                        and problem-solving, TOSDEV specializes in developing cutting-edge software 
-                        solutions that enhance user experiences and drive business growth.</p>
-                    <p>Our team combines creativity with technical expertise to deliver solutions that 
-                        not only meet but exceed our clients' expectations. We believe in building 
-                        long-term relationships through transparency, quality, and innovation.</p>
-                    <div class="skills-container">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Git</span>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="pp4.webp" alt="Tosdev Team">
-                </div>
+            <div class="content-img reveal">
+                <img src="pp4.webp" alt="Tosdev Profile">
             </div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="section Services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Comprehensive solutions tailored to your business needs</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Software Development</h3>
-                    <p>Our experienced and dedicated team specializes in creating custom software solutions tailored to your organization's unique needs.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Data Analysis</h3>
-                    <p>Unlock valuable insights from your data with our data analysis services through visualization and predictive analytics.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Online Payment Integration</h3>
-                    <p>We provide seamless payment gateway integration to help businesses accept online transactions securely.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Software Deployment</h3>
-                    <p>From development to launch, we handle the end-to-end deployment process ensuring smooth operation.</p>
-                </div>
-            </div>
+        <div class="skill-container reveal">
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS3</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">PHP</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">React</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">MongoDB</span>
+            <span class="skill">Python</span>
+            <span class="skill">Git</span>
+            <span class="skill">REST APIs</span>
+            <span class="skill">Bootstrap</span>
+            <span class="skill">jQuery</span>
+            <span class="skill">Linux</span>
+            <span class="skill">Docker</span>
         </div>
     </section>
-
-    <!-- Projects Section -->
-    <section class="section projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>My Projects</h2>
-                <p>Showcasing my recent work and accomplishments</p>
+    
+    <section id="services" class="services section">
+        <header class="section-header reveal">My Services</header>
+        <p class="section-subtitle reveal">Here are the services I offer to help grow your business</p>
+        <div class="cards">
+            <div class="card reveal">
+                <div class="card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Software Development</h3>
+                <p>Custom software solutions tailored to your organization's unique needs. Web applications, mobile apps, and enterprise software with scalability, security, and efficiency.</p>
             </div>
-            <div class="projects-grid">
-                <!-- E-Learning Website -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="E-Learning Website">
-                    </div>
-                    <div class="project-info">
-                        <h3>E-Learning Platform</h3>
-                        <p>A comprehensive online learning system with course management, user registration, email verification, and payment integration.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                    </div>
+            <div class="card reveal">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
                 </div>
-
-                <!-- Patient Appointment System -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patient Appointment System">
-                    </div>
-                    <div class="project-info">
-                        <h3>Patient Appointment System</h3>
-                        <p>A healthcare management system that allows patients to book appointments, doctors to manage schedules, and admins to oversee operations.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                    </div>
+                <h3>Data Analysis</h3>
+                <p>Unlock valuable insights from your data through visualization, trend analysis, and predictive analytics to improve operations and strategy with data-driven decisions.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">
+                    <i class="fas fa-credit-card"></i>
                 </div>
-
-                <!-- Car Rental System -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Car Rental System">
-                    </div>
-                    <div class="project-info">
-                        <h3>Car Rental System</h3>
-                        <p>An online platform for renting vehicles with features like availability checking, booking system, and admin dashboard.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                    </div>
+                <h3>Payment Integration</h3>
+                <p>Seamless payment gateway integration to accept online transactions securely. Supports multiple payment methods including cards, mobile wallets, and bank transfers.</p>
+            </div>
+            <div class="card reveal">
+                <div class="card-icon">
+                    <i class="fas fa-rocket"></i>
                 </div>
-
-                <!-- Voting System -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://media.istockphoto.com/id/1497372399/photo/woman-use-smartphone-to-vote-online-political-concept.jpg?s=2048x2048&w=is&k=20&c=h2TRcaXb_4ejD8YDEy2dQPjpCgC1NsfO6arO_yQHw2Y=" alt="Voting system">
-                    </div>
-                    <div class="project-info">
-                        <h3>Voting System</h3>
-                        <p>A voting system that help in voting and is safe, secure, Scalable with other features.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blog Platform -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Platform">
-                    </div>
-                    <div class="project-info">
-                        <h3>Blog Platform</h3>
-                        <p>A fully functional blog with user authentication, post creation, commenting system, and admin panel for content management.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sports Fitness Recommendation -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sports Fitness Recommendation">
-                    </div>
-                    <div class="project-info">
-                        <h3>Fitness Recommendation System</h3>
-                        <p>An AI-powered fitness app that recommends personalized workout plans based on user goals, fitness level, and preferences.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Company User Profile -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Company User Profile">
-                    </div>
-                    <div class="project-info">
-                        <h3>Company Profile System</h3>
-                        <p>A comprehensive employee management system with user profiles, department structures, and role-based access control.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chatbot -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chatbot">
-                    </div>
-                    <div class="project-info">
-                        <h3>AI Chatbot</h3>
-                        <p>An intelligent chatbot that understands natural language queries and provides relevant responses for customer support.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Gemini Api</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
+                <h3>Software Deployment</h3>
+                <p>End-to-end deployment process handling from development to launch, ensuring your software runs smoothly with proper configuration, testing, and optimization.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section id="projects" class="projects section">
+        <header class="section-header reveal">My Projects</header>
+        <p class="section-subtitle reveal">Explore some of my recent work and case studies</p>
+        <div class="project-grid">
+            <!-- E-Learning Website -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="E-Learning Website">
+                    <div class="project-overlay">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>E-Learning Platform</h3>
+                    <p>A comprehensive online learning system with course management, user registration, email verification, and payment integration.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patient Appointment System -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Patient Appointment System">
+                    <div class="project-overlay">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="https://github.com/tosdev06/Patient-appointment.git" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Patient Appointment System</h3>
+                    <p>A healthcare management system that allows patients to book appointments, doctors to manage schedules, and admins to oversee operations.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Car Rental System -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Car Rental System">
+                    <div class="project-overlay">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Car Rental System</h3>
+                    <p>An online platform for renting vehicles with features like availability checking, booking system, and admin dashboard.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Voting stystem -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://media.istockphoto.com/id/1497372399/photo/woman-use-smartphone-to-vote-online-political-concept.jpg?s=2048x2048&w=is&k=20&c=h2TRcaXb_4ejD8YDEy2dQPjpCgC1NsfO6arO_yQHw2Y=" alt="Voting system">
+                    <div class="project-overlay">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="https://github.com/tosdev06/voting-system.git" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Voting System</h3>
+                    <p>A secure and scalable voting system with features like voter authentication, real-time results, and admin controls.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Platform -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Blog Platform">
+                    <div class="project-overlay">
+                        <a href="https://tosblog-379u.onrender.com/index.php" target="_blank">Live Demo</a>
+                        <a href="https://github.com/tosdev06/blog_system.git" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Blog Platform</h3>
+                    <p>A fully functional blog with user authentication, post creation, commenting system, and admin panel for content management.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports Fitness Recommendation -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sports Fitness Recommendation">
+                    <div class="project-overlay">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="https://github.com/tosdev06/fitness-app.git" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Fitness Recommendation System</h3>
+                    <p>An AI-powered fitness app that recommends personalized workout plans based on user goals, fitness level, and preferences.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company User Profile -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Company User Profile">
+                    <div class="project-overlay">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="https://github.com/tosdev06/userProfile.git" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Company Profile System</h3>
+                    <p>A comprehensive employee management system with user profiles, department structures, and role-based access control.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chatbot -->
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chatbot">
+                    <div class="project-overlay">
+                        <a href="https://tosdevchatbot.vercel.app/" target="_blank">Live Demo</a>
+                        <a href="https://github.com/tosdev06/chatbot.git" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>AI Chatbot</h3>
+                    <p>An intelligent chatbot that understands natural language queries and provides relevant responses for customer support.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Gemini Api</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section">
+        <header class="section-header reveal">Get In Touch</header>
+        <p class="section-subtitle reveal">Have a project in mind or want to discuss potential collaboration? Let's talk!</p>
+        
+        <div class="contact-container">
+            <div class="contact-info reveal">
+                <h3>Contact Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Babcock University, Ilishan-Remo, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:olawuyitofunmi19@gmail.com">olawuyitofunmi19@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <a href="tel:+2348100000000">+234 810 000 0000</a>
+                        </div>
+                    </div>
+                </div>
+                <h3>Follow Me</h3>
+                <div class="social-links">
+                    <a href="https://x.com/OlawuyiOluwat19" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/olawuyi-oluwatofunmi-407846307" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/tosdev06" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form reveal">
+                <h3>Send Me a Message</h3>
+                <form id="contactForm" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>TOSDEV</h3>
-                    <p>Innovative digital solutions tailored to your business needs. Let's build something amazing together.</p>
-                    <div class="social-links">
-                        <a href="https://x.com/OlawuyiOluwat19" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/in/olawuyi-oluwatofunmi-407846307" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/tosdev06" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Mobile Design</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">SEO Optimization</a></li>
-                        <li><a href="#">Maintenance</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li><a href="mailto:olawuyitofunmi19@gmail.com">olawuyitofunmi19@gmail.com</a></li>
-                        <li><a href="tel:+2348100000000">+234 810 000 0000</a></li>
-                        <li>Lagos, Nigeria</li>
-                    </ul>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>About Tosdev</h3>
+                <p>Innovative software developer creating digital solutions that drive business growth and enhance user experiences.</p>
+                <div class="social-icons">
+                    <a href="https://x.com/OlawuyiOluwat19" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/olawuyi-oluwatofunmi-407846307" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/tosdev06" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2024 Tosdev. All Rights Reserved.</p>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Software Development</a></li>
+                    <li><a href="#">Data Analysis</a></li>
+                    <li><a href="#">Payment Integration</a></li>
+                    <li><a href="#">Software Deployment</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Babcock University, Nigeria</p>
+                <p><i class="fas fa-envelope"></i> olawuyitofunmi19@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +234 810 000 0000</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tosdev. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
         // Slideshow functionality
         let index = 0;
         const slides = document.querySelectorAll(".slideshow img");
+        const textOverlay = document.querySelector(".text-overlay");
+        const header = document.querySelector(".header"); 
         
+        const slideTexts = [
+            {
+                title: "Innovative Solutions for Your Digital Needs",
+                subtitle: "We combine creativity with technical expertise to deliver exceptional results"
+            },
+            {
+                title: "💻 Custom Software Development",
+                subtitle: "Tailored solutions that grow with your business"
+            },
+            {
+                title: "📈 Data-Driven Decision Making",
+                subtitle: "Transform your data into actionable insights"
+            },
+            {
+                title: "🌐 Your Vision, Our Expertise",
+                subtitle: "Let's build something amazing together"
+            },
+            {
+                title: "🔒 Secure & Scalable Solutions",
+                subtitle: "Performance and security you can trust"
+            }
+        ];
+
         function showNextSlide() {
             slides[index].classList.remove("active");
             index = (index + 1) % slides.length;
             slides[index].classList.add("active");
+            
+            // Update text overlay with animation
+            textOverlay.style.opacity = 0;
+            setTimeout(() => {
+                textOverlay.querySelector('h1').textContent = slideTexts[index].title;
+                textOverlay.querySelector('p').textContent = slideTexts[index].subtitle;
+                textOverlay.style.opacity = 1;
+            }, 500);
         }
 
         setInterval(showNextSlide, 5000);
 
-        // Animate elements on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.animate');
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
+        // Header scroll effect
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled"); 
+            } else {
+                header.classList.remove("scrolled"); 
+            }
+        });
 
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
+        // Mobile menu toggle
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
+            
+            menuToggle.addEventListener("click", function () {
+                menu.classList.toggle("active");
+                menuToggle.querySelector('i').classList.toggle("fa-times");
+                menuToggle.querySelector('i').classList.toggle("fa-bars");
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (menu.classList.contains('active')) {
+                            menu.classList.remove('active');
+                            menuToggle.querySelector('i').classList.toggle("fa-times");
+                            menuToggle.querySelector('i').classList.toggle("fa-bars");
+                        }
+                    }
+                });
+            });
+            
+            // Scroll reveal animation
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            function checkReveal() {
+                const windowHeight = window.innerHeight;
+                const revealPoint = 150;
+                
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkReveal);
+            window.addEventListener('load', checkReveal);
+
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Here you would typically send the data to a server
+                    // For demonstration, we'll just show an alert
+                    alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon at ${email}.`);
+                    
+                    // Reset the form
+                    contactForm.reset();
+                });
+            }
+        });
     </script>
 </body>
 </html>
